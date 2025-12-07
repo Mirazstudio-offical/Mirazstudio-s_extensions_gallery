@@ -46,7 +46,6 @@ p {
 
 #extensions-grid {
     display: grid;
-    /* Карточки теперь шире: минимум 300px */
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 20px;
     max-width: 1200px;
@@ -148,3 +147,4 @@ p {
 }
 
 .btn-open:hover { background-color: #009ecc; }
+
