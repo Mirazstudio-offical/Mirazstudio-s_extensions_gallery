@@ -45,7 +45,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     <div class="extension-title">${ext.name}</div>
                     <div class="btn-group">
                         <button class="btn btn-copy" onclick="copyLink('${codeUrl}', this)">Копировать</button>
-                        <a href="${penguinLink}" target="_blank" class="btn btn-open">Открыть</a>
                     </div>
                 </div>
             `;
@@ -87,3 +86,4 @@ function copyLink(text, btnElement) {
     }).catch(err => console.error(err));
 
 }
+
