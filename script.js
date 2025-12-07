@@ -5,9 +5,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const myExtensions = [
         {
             id: "Dash_code_cleaner_extension", 
-            name: "Dash Code Cleaner"
+            name: "Code Cleaner"
         },
-        // Добавь сюда новые расширения
+        {
+            id: "penguinmod_firebase_extension",
+            name: "firebase extension"
+        }
+
+        
     ];
 
     const grid = document.getElementById('extensions-grid');
@@ -22,7 +27,6 @@ document.addEventListener('DOMContentLoaded', () => {
             const codeUrl = `${baseUrl}/code.js`;
             const logoUrl = `${baseUrl}/logo.svg`;
             
-            // Ссылка стандартная. PenguinMod сам решит, включать песочницу или нет.
             const penguinLink = `https://studio.penguinmod.com/editor.html?extension=${encodeURIComponent(codeUrl)}`;
 
             const card = document.createElement('div');
@@ -34,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
                      onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
                 
                 <div class="no-icon-placeholder" style="display:none; width:100%; height:100%; align-items:center; justify-content:center; background:#333; color:#777; font-size:1.2rem;">
-                    🐧
+                    
                 </div>
                 
                 <div class="card-overlay">
@@ -81,4 +85,5 @@ function copyLink(text, btnElement) {
             btnElement.style.color = "";
         }, 2000);
     }).catch(err => console.error(err));
+
 }
