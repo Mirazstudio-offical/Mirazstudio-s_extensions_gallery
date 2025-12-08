@@ -22,11 +22,13 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!grid) return;
         grid.innerHTML = '';
         
+        // Файл заглушки в корне сайта
+        const placeholderUrl = 'placeholder.svg';
+
         extensions.forEach(ext => {
             const baseUrl = `https://cdn.jsdelivr.net/gh/${githubUsername}/${ext.id}@${branchName}`;
             const codeUrl = `${baseUrl}/code.js`;
             const logoUrl = `${baseUrl}/logo.svg`;
-            
             const penguinLink = `https://studio.penguinmod.com/editor.html?extension=${encodeURIComponent(codeUrl)}`;
 
             const card = document.createElement('div');
@@ -34,17 +36,16 @@ document.addEventListener('DOMContentLoaded', () => {
             card.setAttribute('data-name', ext.name.toLowerCase());
 
             card.innerHTML = `
-                <img src="${logoUrl}" alt="${ext.name}" class="extension-image" 
-                     onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-                
-                <div class="no-icon-placeholder" style="display:none; width:100%; height:100%; align-items:center; justify-content:center; background:#333; color:#777; font-size:1.2rem;">
-                    
-                </div>
+                <img src="${logoUrl}" 
+                     alt="${ext.name}" 
+                     class="extension-image" 
+                     onerror="this.onerror=null; this.src='${placeholderUrl}'">
                 
                 <div class="card-overlay">
                     <div class="extension-title">${ext.name}</div>
                     <div class="btn-group">
                         <button class="btn btn-copy" onclick="copyLink('${codeUrl}', this)">Копировать</button>
+                        <a href="${penguinLink}" target="_blank" class="btn btn-open">Открыть</a>
                     </div>
                 </div>
             `;
@@ -86,4 +87,5 @@ function copyLink(text, btnElement) {
     }).catch(err => console.error(err));
 
 }
+
 
